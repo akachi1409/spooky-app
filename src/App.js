@@ -1,30 +1,40 @@
 // import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 //import components
-import Header from './components/header/header';
-import Team from './components/team/team';
-import JoinCommunity from './components/join-community/join-community';
-import Footer from './components/footer/footer';
-import RoadMap from './components/roadmap/roadmap';
-import TopItems from './components/top-items/top-items';
-import Mint from './components/mint/mint';
-import About from './components/about/about';
-import Meet from './components/meet/meet';
+// import MyBots from './pages/Bots'
+import MyBots from "./pages/MyBots";
+import BotMap from "./pages/BotMap";
+import Initiate from "./pages/Initiate";
+import Exchange from "./pages/Exchange";
+import Dashboard from './pages/Dashboard/index'
+import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Meet />
-      <About />
-      <Mint />
-      <TopItems />
-      <RoadMap />
-      <Team />
-      <JoinCommunity />
-      <Footer />
-    </div>
+    <React.Suspense>
+      <Router>
+        <Switch>
+          <Route exact path="/bot-map">
+            <BotMap />
+          </Route>
+          <Route exact path="/my-bots">
+            <MyBots />
+          </Route>
+          <Route exact path="/initiate-bots">
+            <Initiate />
+          </Route>
+          <Route exact path="/bot-exchange">
+            <Exchange />
+          </Route>
+          <Route exact path="/dashboard">
+            <Dashboard />
+          </Route>
+        </Switch>
+      </Router>
+    </React.Suspense>
   );
 }
 
